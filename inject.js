@@ -1,0 +1,2 @@
+(document.body.style.overflow == 'hidden') ? document.body.style.overflow = 'visible' : false ;
+(document.getElementsByClassName('fc-ab-root').length) ? document.getElementsByClassName('fc-ab-root')[0].remove(): false ;
