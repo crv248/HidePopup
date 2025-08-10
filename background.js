@@ -1,7 +1,9 @@
-// listen for our browerAction to be clicked
-chrome.browserAction.onClicked.addListener(function (tab) {
-	// for the current tab, inject the "inject.js" file & execute it
-	chrome.tabs.executeScript(tab.ib, {
-		file: 'inject.js'
-	});
+chrome.action.onClicked.addListener((tab) => {
+  if (!tab || typeof tab.id !== "number") return;
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    files: ["Inject.js"]
+  }).catch(err => {
+    console.error("Error ejecutando Inject.js:", err);
+  });
 });
